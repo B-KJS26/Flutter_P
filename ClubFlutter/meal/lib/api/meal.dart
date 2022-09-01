@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 // ignore: unused_import
 import 'package:http/http.dart';
 // ignore: unused_import
@@ -13,10 +14,13 @@ class Meal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'API식단표',
+    return ScreenUtilInit(
+      designSize: Size(414, 736),
+      builder: (BuildContext context, Widget? child)=> MaterialApp(
+      title: '학사일정',
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
+      ),
     );
   }
 }
@@ -50,11 +54,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     // ignore: sized_box_for_whitespace
                     Container(
                       margin: const EdgeInsets.fromLTRB(20, 20, 0, 0),
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      height: 75.h,
                       child: Image.asset('assets/images/spoonandfork.png'),
                       decoration: BoxDecoration(
                         color: const Color(0xffF9F9F9),//테두리
-                        borderRadius: BorderRadius.circular(22),
+                        borderRadius: BorderRadius.circular  (22),
                         border: Border.all(color: const Color(0xffF9F9F9), width: 7),
                         boxShadow: [
                           // ignore: prefer_const_constructors
@@ -73,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ]
                     ),),
                     Container(
-                    margin: const EdgeInsets.fromLTRB(20, 55, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(20, 30, 0, 0),
                     child: Text(
                       '급식 \n' 
                       '$Month월 '
@@ -87,8 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 20,
               ),
           Container(
-            width:  0.92 * MediaQuery.of(context).size.width,
-            height: 0.71 * MediaQuery.of(context).size.height,
+            width: 380.w,
+            height: 530.h,
             child: Column(
               children: [
                 Row(
@@ -124,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ],
-            ),
+            ),                                                                                                                                                           
             decoration: BoxDecoration(
                   image: const DecorationImage(
                     fit: BoxFit.fill,
