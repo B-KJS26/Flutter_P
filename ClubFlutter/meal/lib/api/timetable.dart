@@ -13,8 +13,8 @@ class Timetable extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                  width: 45,
-                  height: 45,
+                  width: 44,
+                  height: 44,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -22,8 +22,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 45,
-                  height: 45,
+                  width: 44,
+                  height: 44,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -31,8 +31,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 45,
-                  height: 45,
+                  width: 44,
+                  height: 44,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -40,8 +40,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 45,
-                  height: 45,
+                  width: 44,
+                  height: 44,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -49,8 +49,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 45,
-                  height: 45,
+                  width: 44,
+                  height: 44,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -58,8 +58,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 45,
-                  height: 45,
+                  width: 44,
+                  height: 44,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -67,8 +67,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 45,
-                  height: 45,
+                  width: 44,
+                  height: 44,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
