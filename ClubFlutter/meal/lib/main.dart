@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'api/haksa.dart';
 import 'api/sigan.dart';
 import 'api/meal.dart';
+import 'api/diqkf.dart';
 void main() {
   runApp(MyApp());
 }

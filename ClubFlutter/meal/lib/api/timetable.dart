@@ -1,3 +1,4 @@
+//sigan2
 import 'package:flutter/material.dart';
 
 class Timetable extends StatelessWidget {
@@ -13,8 +14,8 @@ class Timetable extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                  width: 44,
-                  height: 44,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -22,8 +23,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 44,
-                  height: 44,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -31,8 +32,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 44,
-                  height: 44,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -40,8 +41,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 44,
-                  height: 44,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -49,8 +50,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 44,
-                  height: 44,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -58,8 +59,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 44,
-                  height: 44,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),
@@ -67,8 +68,8 @@ class Timetable extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),
-                  width: 44,
-                  height: 44,
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: Color(0xffFFEE95),

@@ -100,13 +100,13 @@ class _SiganapiState extends State<Siganapi> {
                 ),
                 Positioned(
                   top: 105,
-                  left: 32,
+                  left: 50,
                   child: Row(
                         children: [
                           // ignore: sized_box_for_whitespace
                           Container(
-                            width: 40,
-                            height: 40,
+                            width: 35,
+                            height: 35,
                             child:
                           ElevatedButton(onPressed: (){
                             setState(() {
@@ -117,7 +117,7 @@ class _SiganapiState extends State<Siganapi> {
                             isFriday = false;
                           
                             });
-                            }, child: Text("월", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 18, ),), style: ElevatedButton.styleFrom(
+                            }, child: Text("월", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16, ),), style: ElevatedButton.styleFrom(
                             elevation: 0.0,
                             primary: isMonday ? Color(0xffFFEE95) : Color(0xff9EC3FF),
                             shape: RoundedRectangleBorder(
@@ -132,8 +132,8 @@ class _SiganapiState extends State<Siganapi> {
                           ),
                           // ignore: sized_box_for_whitespace
                           Container(
-                            width: 40,
-                            height: 40,
+                            width: 35,
+                            height: 35,
                             child: ElevatedButton(onPressed: (){
                             setState(() {
                               isMonday = false;
@@ -142,7 +142,7 @@ class _SiganapiState extends State<Siganapi> {
                             isThursday = false;
                             isFriday = false;
                             });
-                            }, child: Text("화", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 20),), style: ElevatedButton.styleFrom(
+                            }, child: Text("화", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16),), style: ElevatedButton.styleFrom(
                             elevation: 0.0,
                             minimumSize: Size(50, 50),
                             primary: isTuesday ? Color(0xffFFEE95) :  Color(0xff9EC3FF),
@@ -156,8 +156,8 @@ class _SiganapiState extends State<Siganapi> {
                             width: 22,
                           ),
                           Container(
-                          width: 40,
-                          height: 40,
+                          width: 35,
+                            height: 35,
                           child: ElevatedButton(onPressed: (){
                             setState(() {
                               isMonday = false;
@@ -167,7 +167,7 @@ class _SiganapiState extends State<Siganapi> {
                             isFriday = false;
                           
                             });
-                            }, child: Text("수", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 20),), style: ElevatedButton.styleFrom(
+                            }, child: Text("수", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16),), style: ElevatedButton.styleFrom(
                             elevation: 0.0,
                             minimumSize: Size(50, 50),
                             primary: isWednesday ? Color(0xffFFEE95) :  Color(0xff9EC3FF),
@@ -182,8 +182,8 @@ class _SiganapiState extends State<Siganapi> {
                             width: 22,
                           ),
                           Container(
-                            width: 40,
-                            height: 40,
+                            width: 35,
+                            height: 35,
                           child: ElevatedButton(onPressed: (){
                             setState(() {
                               isMonday = false;
@@ -192,7 +192,7 @@ class _SiganapiState extends State<Siganapi> {
                             isThursday = true;
                             isFriday = false;
                             });
-                            }, child: Text("목", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 20),), style: ElevatedButton.styleFrom(
+                            }, child: Text("목", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16),), style: ElevatedButton.styleFrom(
                             elevation: 0.0,
                             minimumSize: Size(50, 50),
                             primary: isThursday ? Color(0xffFFEE95) :  Color(0xff9EC3FF),
@@ -207,8 +207,8 @@ class _SiganapiState extends State<Siganapi> {
                             width: 22,
                           ),
                           Container(
-                            width: 40,
-                            height: 40,
+                            width: 35,
+                            height: 35,
                           child: ElevatedButton(onPressed: (){
                             setState(() {
                               isMonday = false;
@@ -218,7 +218,7 @@ class _SiganapiState extends State<Siganapi> {
                             isFriday = true;
                           
                             });
-                            }, child: Text("금", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 20),), style: ElevatedButton.styleFrom(
+                            }, child: Text("금", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16),), style: ElevatedButton.styleFrom(
                             elevation: 0.0,
                             primary: isFriday ? Color(0xffFFEE95) :  Color(0xff9EC3FF),
                             shape: RoundedRectangleBorder(
