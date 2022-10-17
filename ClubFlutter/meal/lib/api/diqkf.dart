@@ -49,8 +49,6 @@ class _HttpAppState extends State<HttpApp> {
                           children: [
                             Text(data[index]["1"].toString()),
                             Text(data[index]["2"].toString()),
-                            Text(data[index]["3"].toString()),
-                            Text(data[index]["4"].toString()),
                           ],
                         ),
                       ),
