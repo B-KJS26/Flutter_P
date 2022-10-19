@@ -17,7 +17,7 @@ class Meal extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(414, 736),
       builder: (BuildContext context, Widget? child)=> MaterialApp(
-      title: '학사일정',
+      title: '급식표',
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
       ),
