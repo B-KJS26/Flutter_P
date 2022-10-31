@@ -12,7 +12,7 @@ class ApisProviders {
     final response = await http.get(uri);
 
     if(response.statusCode == 200) {
-      apis = jsonDecode(response.body)['Schedule_Day'].map<Apis>(
+      apis = jsonDecode(response.body)["Schedule_Day"].map<Apis>(
         (schedule) {
         return Apis.fromMap(schedule);
         }
