@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:meal/api/wow.dart';
 import 'widget/bottombar.dart';
 import 'package:flutter/services.dart';
 import 'api/haksa.dart';
 import 'api/sigan.dart';
 import 'api/meal.dart';
 import 'api/screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
             length: 4,
             child: Scaffold(
               body: const TabBarView(
-                children: [ApisScreen(), Meal(), Haksa(), Sigan()],
+                children: [test(), Meal(), Haksa(), Sigan()],
               ),
                 bottomNavigationBar: Bottom.bottomBar())),
       ),
