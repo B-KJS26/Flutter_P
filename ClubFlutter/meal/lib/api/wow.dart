@@ -17,6 +17,7 @@ class _testState extends State<test> {
     final response = await http.get(Uri.parse(
         'http://13.125.225.199:8001/api/school/neisAPI/schedule?year=2022&month=11'));
     var parsingData = jsonDecode(utf8.decode(response.bodyBytes));
+    firstday = parsingData['Schedule_Day']['1'];
     if (response.statusCode == 200) {
       print(parsingData);
     } else {
