@@ -58,17 +58,8 @@ class _testState extends State<test> {
               onPressed: () {
                 fetchPost();
               },
-              child: Text(fday)), 
+              child: Text('zz')), 
               Text(fday, style: const TextStyle(color: Colors.black, fontSize: 25),),
-              Text(sday, style: const TextStyle(color: Colors.black, fontSize: 25),),
-              Text(tday, style: const TextStyle(color: Colors.black, fontSize: 25),),
-              Text(foday, style: const TextStyle(color: Colors.black, fontSize: 25),),
-              Text(fiday, style: const TextStyle(color: Colors.black, fontSize: 25),),
-              Text(sixday, style: const TextStyle(color: Colors.black, fontSize: 25),),
-              Text(sevday, style: const TextStyle(color: Colors.black, fontSize: 25),),
-              Text(eday, style: const TextStyle(color: Colors.black, fontSize: 25),),
-              Text(nday, style: const TextStyle(color: Colors.black, fontSize: 25),),
-              Text(teday, style: const TextStyle(color: Colors.black, fontSize: 25),),
         ],
       ),
     );

@@ -6,8 +6,7 @@ import 'package:flutter/services.dart';
 import 'api/haksa.dart';
 import 'api/sigan.dart';
 import 'api/meal.dart';
-import 'api/screen.dart';
-
+import 'api/jebal.dart';
 void main() {
   runApp(MyApp());
 }
@@ -23,10 +22,10 @@ class MyApp extends StatelessWidget {
         title: 'Welcome',
         debugShowCheckedModeBanner: false,
         home: DefaultTabController(
-            length: 4,
+            length: 5,
             child: Scaffold(
               body: const TabBarView(
-                children: [test(), Meal(), Haksa(), Sigan()],
+                children: [Jebal(), test(), Meal(), Haksa(), Sigan()],
               ),
                 bottomNavigationBar: Bottom.bottomBar())),
       ),
