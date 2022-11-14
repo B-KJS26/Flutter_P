@@ -1,13 +1,17 @@
 // ignore_for_file: non_constant_identifier_names
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // ignore: unused_import
 import 'package:http/http.dart';
+import 'package:meal/api/splashed.dart';
 // ignore: unused_import
 import 'package:meal/post.dart';
 // ignore: unused_import
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import 'package:http/http.dart' as http;
 
 class Meal extends StatelessWidget {
   const Meal({ Key? key }) : super(key: key);
@@ -36,6 +40,28 @@ class MyHomePage extends StatefulWidget {
   // ignore: unnecessary_new
   var now = new DateTime.now();
 class _MyHomePageState extends State<MyHomePage> {
+  bool isLoading = true;
+  String breakfast = "";
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchPostm();
+  }
+  Future<void> fetchPostm() async {
+    final response = await http.get(Uri.parse(
+        'http://13.125.225.199:8001/api/school/neisAPI/schedule?year=2022&month=11'));
+    var parsingData = jsonDecode(utf8.decode(response.bodyBytes));
+    setState(() {
+      breakfast = parsingData['Schedule_Day']['1'];
+      isLoading = false;
+    });
+    if (response.statusCode == 200) {
+      print('Success');
+    } else {
+      throw Exception('Failed to load post');
+    }
+  }
   @override
   // ignore: override_on_non_overriding_member
   final standardDeviceWidth = 360;
@@ -45,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
-      body: Column(
+      body: isLoading ? Splashed() : Column(
         children: [
           //FLEXIBLE을 이용하여 화면이 어떻게 달라져도 자동
           Flexible(

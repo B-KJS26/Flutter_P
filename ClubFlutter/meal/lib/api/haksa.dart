@@ -1,15 +1,18 @@
 // ignore_for_file: non_constant_identifier_names
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // ignore: unused_import
 import 'package:http/http.dart';
+import 'package:meal/api/splashed.dart';
 // ignore: unused_import
 import 'package:meal/post.dart';
 // ignore: unused_import
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:http/http.dart' as http;
 
 class Haksa extends StatelessWidget {
   const Haksa({Key? key}) : super(key: key);
@@ -38,6 +41,27 @@ class MyHomePage extends StatefulWidget {
 var now = new DateTime.now();
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isLoading = true;
+  String fday = "";
+  @override
+  initState(){
+    super.initState();
+    fetchPosth();
+  }
+  Future<void> fetchPosth() async {
+    final response = await http.get(Uri.parse(
+        'http://13.125.225.199:8001/api/school/neisAPI/schedule?year=2022&month=11'));
+    var parsingData = jsonDecode(utf8.decode(response.bodyBytes));
+    setState(() {
+      fday = parsingData['Schedule_Day']['1'];
+      isLoading = false;
+    });
+    if (response.statusCode == 200) {
+      print('Success');
+    } else {
+      throw Exception('Failed to load post');
+    }
+  }
   @override
   String Month = DateFormat('M').format(now);
   String Day = DateFormat('d').format(now);
@@ -45,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
-      body: Column(
+      body: isLoading ? Splashed() : Column(
         children: [
           //FLEXIBLE을 이용하여 화면이 어떻게 달라져도 자동
           Flexible(

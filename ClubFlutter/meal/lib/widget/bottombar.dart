@@ -21,18 +21,6 @@ class Bottom {
             ),
             Tab(
               icon: Icon(
-                Icons.home,
-                size: 25.h,
-              ),
-            ),
-            Tab(
-              icon: Icon(
-                Icons.home,
-                size: 25.h,
-              ),
-            ),
-            Tab(
-              icon: Icon(
                 Icons.groups,
                 size: 25.h,
               ),

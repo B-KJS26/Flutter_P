@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
 
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'dart:ui';
-
+import 'package:http/http.dart' as http;
+import 'package:meal/api/splashed.dart';
 import 'package:meal/api/timetable.dart';
 
 class Sigan extends StatelessWidget {
@@ -33,18 +36,35 @@ class _SiganapiState extends State<Siganapi> {
   bool isThursday = false;
   bool isFriday = false;
   late List<bool> isSelected;
-
+  bool isLoading = true;
+  String Monday = "";
   @override
   void initState() {
     isSelected = [isMonday, isTuesday, isWednesday, isThursday, isFriday];
     super.initState();
+    fetchPosts();
+  }
+
+  Future<void> fetchPosts() async {
+    final response = await http.get(Uri.parse(
+        'http://13.125.225.199:8001/api/school/neisAPI/schedule?year=2022&month=11'));
+    var parsingData = jsonDecode(utf8.decode(response.bodyBytes));
+    setState(() {
+      Monday = parsingData['Schedule_Day']['1'];
+      isLoading = false;
+    });
+    if (response.statusCode == 200) {
+      print('Success');
+    } else {
+      throw Exception('Failed to load post');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
+      body: isLoading ? Splashed() : Column(
         children: [
           Container(
             width: MediaQuery.of(context).size.width * 1,
