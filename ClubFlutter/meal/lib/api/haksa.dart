@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // ignore: unused_import
 import 'package:http/http.dart';
-import 'package:meal/api/splashed.dart';
+import 'package:meal/splash/splashed.dart';
 // ignore: unused_import
 import 'package:meal/post.dart';
 // ignore: unused_import
