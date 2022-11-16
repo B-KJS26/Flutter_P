@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:http/http.dart' as http;
@@ -37,7 +38,7 @@ class _SiganapiState extends State<Siganapi> {
   bool isFriday = false;
   late List<bool> isSelected;
   bool isLoading = true;
-  String Monday = "";
+  String monday1 = "";
   String MSub = "";
   String Tuseday = "";
   String Wednesday = "";
@@ -56,8 +57,7 @@ class _SiganapiState extends State<Siganapi> {
     var parsingData = jsonDecode(utf8.decode(response.bodyBytes));
     setState(() {
       isLoading = false;
-      Monday = parsingData['time'];
-      MSub = parsingData['study'];
+      monday1 = parsingData['1, study'];
     });
     
     if (response.statusCode == 200) {
@@ -76,15 +76,15 @@ class _SiganapiState extends State<Siganapi> {
           : Column(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 1,
-                  height: MediaQuery.of(context).size.height * 0.22,
+                  width: 430.w,
+                  height: 180.h,
                   child: Stack(
                     children: [
                       // ignore: sized_box_for_whitespace
                       Container(
                         margin: const EdgeInsets.fromLTRB(25, 25, 0, 0),
-                        height: MediaQuery.of(context).size.height * 0.09,
-                        width: MediaQuery.of(context).size.width * 0.18,
+                        width: 90.w,
+                        height: 80.h,
                         child: Image.asset(
                           'assets/images/sigan.png',
                         ),
@@ -104,7 +104,7 @@ class _SiganapiState extends State<Siganapi> {
                             ]),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(105, 33, 0, 0),
+                        margin: const EdgeInsets.fromLTRB(105, 28, 0, 0),
                         child: Column(
                           children: [
                             // ignore: avoid_unnecessary_containers
@@ -130,7 +130,7 @@ class _SiganapiState extends State<Siganapi> {
                       ),
                       Positioned(
                         top: 105,
-                        left: 50,
+                        left: 40.w,
                         child: Row(
                           children: [
                             // ignore: sized_box_for_whitespace
@@ -152,7 +152,7 @@ class _SiganapiState extends State<Siganapi> {
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 16,
+                                    fontSize: 14,
                                   ),
                                 ),
                                 style: ElevatedButton.styleFrom(
@@ -188,7 +188,7 @@ class _SiganapiState extends State<Siganapi> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 16),
+                                      fontSize: 14),
                                 ),
                                 style: ElevatedButton.styleFrom(
                                     elevation: 0.0,
@@ -223,7 +223,7 @@ class _SiganapiState extends State<Siganapi> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 16),
+                                      fontSize: 14),
                                 ),
                                 style: ElevatedButton.styleFrom(
                                     elevation: 0.0,
@@ -326,7 +326,142 @@ class _SiganapiState extends State<Siganapi> {
                     ],
                   ),
                 ),
-                Timetable(),
+                Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 20, top: 20),
+                child: Column(
+                  children: [
+                    Container(
+                  width: 50.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Color(0xffFFEE95),
+                  ),
+                  child: Row(children: [
+                    SizedBox(
+                      width: 18.w,
+                    ),
+                    Text('1',
+                    style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold,),),
+                    Text(
+                      monday1
+                    ),
+                  ],)
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  width: 50.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Color(0xffFFEE95),
+                  ),
+                  child: Row(children: [
+                    SizedBox(
+                      width: 18.w,
+                    ),
+                    Text('2',
+                    style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold,),),
+                  ],)
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  width: 50.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Color(0xffFFEE95),
+                  ),
+                  child: Row(children: [
+                    SizedBox(
+                      width: 18.w,
+                    ),
+                    Text('3',
+                    style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold,),),
+                  ],)
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  width: 50.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Color(0xffFFEE95),
+                  ),
+                  child: Row(children: [
+                    SizedBox(
+                      width: 18.w,
+                    ),
+                    Text('4',
+                    style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold,),),
+                  ],)
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  width: 50.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Color(0xffFFEE95),
+                  ),
+                  child: Row(children: [
+                    SizedBox(
+                      width: 18.w,
+                    ),
+                    Text('5',
+                    style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold,),),
+                  ],)
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  width: 50.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Color(0xffFFEE95),
+                  ),
+                  child: Row(children: [
+                    SizedBox(
+                      width: 18.w,
+                    ),
+                    Text('6',
+                    style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold,),),
+                  ],)
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  width: 50.w,
+                  height: 45.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Color(0xffFFEE95),
+                  ),
+                  child: Row(children: [
+                    SizedBox(
+                      width: 18.w,
+                    ),
+                    Text('7',
+                    style: TextStyle(fontSize: 18,
+                    fontWeight: FontWeight.bold,),),
+                  ],)
+                ),
+                  ]
+                  
+                ),
+              )
+              
+              
+            ],
+          ),
               ],
             ),
     );

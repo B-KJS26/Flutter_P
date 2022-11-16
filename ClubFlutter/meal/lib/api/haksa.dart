@@ -42,18 +42,82 @@ var now = new DateTime.now();
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isLoading = true;
-  String fday = "";
+  String t1 = "";
+  String t2 = "";
+  String t3 = "";
+  String t4 = "";
+  String t5 = "";
+  String t6 = "";
+  String t7 = "";
+  String t8 = "";
+  String t9 = "";
+  String t10 = "";
+  String t11 = "";
+  String t12 = "";
+  String t13 = "";
+  String t14 = "";
+  String t15 = "";
+  String t16 = "";
+  String t17 = "";
+  String t18 = "";
+  String t19 = "";
+  String t20 = "";
+  String t21 = "";
+  String t22 = "";
+  String t23 = "";
+  String t24 = "";
+  String t25 = "";
+  String t26 = "";
+  String t27 = "";
+  String t28 = "";
+  String t29 = "";
+  String t30 = "";
+  String t31 = "";
+  String Month = DateFormat('M').format(now);
+  String Day = DateFormat('d').format(now);
+  var swith = 0;
   @override
-  initState(){
+  initState() {
     super.initState();
     fetchPosth();
+    monthCatch();
   }
+
   Future<void> fetchPosth() async {
     final response = await http.get(Uri.parse(
         'http://13.125.225.199:8001/api/school/neisAPI/schedule?year=2022&month=11'));
     var parsingData = jsonDecode(utf8.decode(response.bodyBytes));
     setState(() {
-      fday = parsingData['Schedule_Day']['1'];
+      t1 = parsingData['Schedule_Day']['1'];
+      t2 = parsingData['Schedule_Day']['2'];
+      t3 = parsingData['Schedule_Day']['3'];
+      t4 = parsingData['Schedule_Day']['4'];
+      t5 = parsingData['Schedule_Day']['5'];
+      t6 = parsingData['Schedule_Day']['6'];
+      t7 = parsingData['Schedule_Day']['7'];
+      t8 = parsingData['Schedule_Day']['8'];
+      t9 = parsingData['Schedule_Day']['9'];
+      t10 = parsingData['Schedule_Day']['10'];
+      t11 = parsingData['Schedule_Day']['11'];
+      t12 = parsingData['Schedule_Day']['12'];
+      t13 = parsingData['Schedule_Day']['13'];
+      t14 = parsingData['Schedule_Day']['14'];
+      t15 = parsingData['Schedule_Day']['15'];
+      t16 = parsingData['Schedule_Day']['16'];
+      t17 = parsingData['Schedule_Day']['17'];
+      t18 = parsingData['Schedule_Day']['18'];
+      t19 = parsingData['Schedule_Day']['19'];
+      t20 = parsingData['Schedule_Day']['20'];
+      t21 = parsingData['Schedule_Day']['21'];
+      t22 = parsingData['Schedule_Day']['22'];
+      t23 = parsingData['Schedule_Day']['23'];
+      t24 = parsingData['Schedule_Day']['24'];
+      t25 = parsingData['Schedule_Day']['25'];
+      t26 = parsingData['Schedule_Day']['26'];
+      t27 = parsingData['Schedule_Day']['27'];
+      t28 = parsingData['Schedule_Day']['28'];
+      t29 = parsingData['Schedule_Day']['29'];
+      t30 = parsingData['Schedule_Day']['30'];
       isLoading = false;
     });
     if (response.statusCode == 200) {
@@ -62,113 +126,435 @@ class _MyHomePageState extends State<MyHomePage> {
       throw Exception('Failed to load post');
     }
   }
+
+  monthCatch() {
+    if (Month == '11') {
+      return 45.w;
+    }
+  }
+
   @override
-  String Month = DateFormat('M').format(now);
-  String Day = DateFormat('d').format(now);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
-      body: isLoading ? Splashed() : Column(
-        children: [
-          //FLEXIBLE을 이용하여 화면이 어떻게 달라져도 자동
-          Flexible(
-            child: Row(
+      body: isLoading
+          ? Splashed()
+          : Column(
               children: [
-                // ignore: sized_box_for_whitespace
-                Container(
-                  margin: const EdgeInsets.fromLTRB(20, 20, 0, 0),
-                  height: 75.h,
-                  child: Image.asset('assets/images/haks.png'),
-                  decoration: BoxDecoration(
-                      color: const Color(0xffF9F9F9), //테두리
-                      borderRadius: BorderRadius.circular(22),
-                      border:
-                          Border.all(color: const Color(0xffF9F9F9), width: 7),
-                      boxShadow: [
-                        // ignore: prefer_const_constructors
-                        BoxShadow(
-                          color: Colors.grey.shade500,
-                          offset: const Offset(0, 5.0),
-                          blurRadius: 5.0,
-                          spreadRadius: 0.3,
+                //FLEXIBLE을 이용하여 화면이 어떻게 달라져도 자동
+                Flexible(
+                  child: Row(
+                    children: [
+                      // ignore: sized_box_for_whitespace
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+                        height: 75.h,
+                        child: Image.asset('assets/images/haks.png'),
+                        decoration: BoxDecoration(
+                            color: const Color(0xffF9F9F9), //테두리
+                            borderRadius: BorderRadius.circular(22),
+                            border: Border.all(
+                                color: const Color(0xffF9F9F9), width: 7),
+                            boxShadow: [
+                              // ignore: prefer_const_constructors
+                              BoxShadow(
+                                color: Colors.grey.shade500,
+                                offset: const Offset(0, 5.0),
+                                blurRadius: 5.0,
+                                spreadRadius: 0.3,
+                              ),
+                              const BoxShadow(
+                                color: Colors.white,
+                                offset: Offset(-1.0, -1.0),
+                                blurRadius: 10.0,
+                                spreadRadius: 1.0,
+                              ),
+                            ]),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.fromLTRB(20, 30, 0, 0),
+                        child: Text(
+                          '학사일정 \n'
+                          '$Month월 ',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        const BoxShadow(
-                          color: Colors.white,
-                          offset: Offset(-1.0, -1.0),
-                          blurRadius: 10.0,
-                          spreadRadius: 1.0,
-                        ),
-                      ]),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 Container(
-                  margin: const EdgeInsets.fromLTRB(20, 30, 0, 0),
-                  child: Text(
-                    '학사일정 \n'
-                    '$Month월 ',
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  width: 375.w,
+                  height: 530.h,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 350.w,
+                        height: 30.h,
+                        margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
+                        child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                            // ignore: prefer_const_literals_to_create_immutables
+                            children: [
+                              SizedBox(
+                                width: 13,
+                              ),
+                              Text(
+                                'SUN  ',
+                                style: const TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 12,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              const Text(
+                                ' MON  ',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              const Text(
+                                ' TUE  ',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              const Text(
+                                ' WED  ',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              SizedBox(
+                                width: 2,
+                              ),
+                              const Text(
+                                ' THU  ',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              const Text(
+                                ' FRI  ',
+                                style: TextStyle(fontSize: 12),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              const Text(
+                                ' SAT',
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 12,
+                                ),
+                              )
+                            ]),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20), //모서리를 둥글게
+                          border: Border.all(color: Colors.black, width: 1),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                        padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+                        width: 355.w,
+                        height: 365.h,
+                        child: Wrap(
+                          direction: Axis.horizontal,
+                          alignment: WrapAlignment.start,
+                          spacing: 2,
+                          runSpacing: 15,
+                          children: [
+                            SizedBox(
+                              width: monthCatch(),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text('1\n$t1',
+                                  style: const TextStyle(fontSize: 9)),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text('2\n$t2',
+                                  style: const TextStyle(fontSize: 9)),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text('3\n$t3',
+                                  style: const TextStyle(fontSize: 9)),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text('4\n$t4',
+                                  style: const TextStyle(fontSize: 9)),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text('5\n$t5',
+                                  style: const TextStyle(fontSize: 9)),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text('6\n$t6',
+                                  style: const TextStyle(fontSize: 9)),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '7\n$t7',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.justify,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '8\n$t8',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.justify,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '9\n$t9',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.justify,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '10\n$t10',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.justify,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '11\n$t11',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.justify,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '12\n$t12',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.justify,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '13\n$t13',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '14\n$t14',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '15\n$t15',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '16\n$t16',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '17\n$t17',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '18\n$t18',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '19\n$t19',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '20\n$t20',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '21\n$t21',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '22\n$t22',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '23\n$t23',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '24\n$t24',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '25\n$t25',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '26\n$t26',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '27\n$t27',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '28\n$t28',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '29\n$t29',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                            Container(
+                              width: 35,
+                              child: Text(
+                                '30\n$t30',
+                                style: const TextStyle(fontSize: 9),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 3,
+                              ),
+                            ),
+                          ],
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage('assets/images/Cal.png'),
                     ),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.shade400,
+                        offset: const Offset(0, 20.0),
+                        blurRadius: 30.0,
+                        spreadRadius: 0,
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-            width: 380.w,
-            height: 530.h,
-            child: Column(
-              children: [
-                Container(
-                  width: 340.w,
-                  height: 30.h,
-                  margin: EdgeInsets.only(top: 110.h),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('SUN  ',
-                        style: TextStyle(
-                          color: Colors.red,
-                        ),),
-                        Text(' MON  '),
-                        Text(' TUE  '),
-                        Text(' WED  '),
-                        Text(' THU  '),
-                        Text(' FRI  '),
-                        Text(' SAT',
-                        style: TextStyle(
-                          color: Colors.blue,
-                        ),)
-                      ]),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20), //모서리를 둥글게
-            border: Border.all(color: Colors.black, width: 1),
-                      ),
-                ),
-              ],
-            ),
-            decoration: BoxDecoration(
-              image: const DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('assets/images/Cal.png'),
-              ),
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.shade400,
-                  offset: const Offset(0, 20.0),
-                  blurRadius: 30.0,
-                  spreadRadius: 0,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

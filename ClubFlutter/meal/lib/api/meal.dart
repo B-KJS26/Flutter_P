@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   Future<void> fetchPostm() async {
     final response = await http.get(Uri.parse(
-        'http://13.125.225.199:8001/api/school/neisAPI/schedule?year=2022&month=11'));
+        'http://13.125.225.199:8000/api/school/neisAPI/meal?year=2022&month=11'));
     var parsingData = jsonDecode(utf8.decode(response.bodyBytes));
     setState(() {
       breakfast = parsingData['Schedule_Day']['1'];
