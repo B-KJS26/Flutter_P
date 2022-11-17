@@ -155,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             color: const Color(0xffF9F9F9), //테두리
                             borderRadius: BorderRadius.circular(22),
                             border: Border.all(
-                                color: const Color(0xffF9F9F9), width: 7),
+                                color: const Color(0xffF9F9F9), width: 7.w),
                             boxShadow: [
                               // ignore: prefer_const_constructors
                               BoxShadow(
@@ -177,8 +177,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text(
                           '학사일정 \n'
                           '$Month월 ',
-                          style: const TextStyle(
-                            fontSize: 20,
+                          style: TextStyle(
+                            fontSize: 25.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -186,8 +186,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                 SizedBox(
+                  height: 20.h,
                 ),
                 Container(
                   width: 375.w,
@@ -198,332 +198,329 @@ class _MyHomePageState extends State<MyHomePage> {
                         width: 350.w,
                         height: 30.h,
                         margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
-                        child: Row(mainAxisAlignment: MainAxisAlignment.start,
+                        child: Row(mainAxisAlignment: MainAxisAlignment.center,
                             // ignore: prefer_const_literals_to_create_immutables
                             children: [
-                              SizedBox(
-                                width: 13,
-                              ),
                               Text(
                                 'SUN  ',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   color: Colors.red,
-                                  fontSize: 12,
+                                  fontSize: 15.sp
                                 ),
                               ),
                               SizedBox(
-                                width: 2,
+                                width: 2.w,
                               ),
-                              const Text(
+                              Text(
                                 ' MON  ',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: 15.sp),
                               ),
                               SizedBox(
-                                width: 2,
+                                width: 2.w,
                               ),
-                              const Text(
+                              Text(
                                 ' TUE  ',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: 15.sp),
                               ),
                               SizedBox(
-                                width: 2,
+                                width: 2.w,
                               ),
-                              const Text(
+                              Text(
                                 ' WED  ',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: 15.sp),
                               ),
                               SizedBox(
-                                width: 2,
+                                width: 2.w,
                               ),
-                              const Text(
+                              Text(
                                 ' THU  ',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: 15.sp),
                               ),
                               SizedBox(
-                                width: 5,
+                                width: 5.w,
                               ),
-                              const Text(
+                              Text(
                                 ' FRI  ',
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: 15.sp),
                               ),
                               SizedBox(
-                                width: 5,
+                                width: 5.w,
                               ),
-                              const Text(
+                              Text(
                                 ' SAT',
                                 style: TextStyle(
                                   color: Colors.blue,
-                                  fontSize: 12,
+                                  fontSize: 15.sp,
                                 ),
                               )
                             ]),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20), //모서리를 둥글게
-                          border: Border.all(color: Colors.black, width: 1),
+                          border: Border.all(color: Colors.black, width: 1.w),
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                        padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+                        margin: EdgeInsets.fromLTRB(0, 10.h, 0, 0),
+                        padding: EdgeInsets.fromLTRB(10.w, 10.h, 0, 0),
                         width: 355.w,
                         height: 365.h,
                         child: Wrap(
                           direction: Axis.horizontal,
                           alignment: WrapAlignment.start,
-                          spacing: 2,
-                          runSpacing: 15,
+                          spacing: 2.w,
+                          runSpacing: 15.h,
                           children: [
                             SizedBox(
                               width: monthCatch(),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text('1\n$t1',
-                                  style: const TextStyle(fontSize: 9)),
+                                  style: TextStyle(fontSize: 11.sp,)),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text('2\n$t2',
-                                  style: const TextStyle(fontSize: 9)),
+                                  style: TextStyle(fontSize: 11.sp,)),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text('3\n$t3',
-                                  style: const TextStyle(fontSize: 9)),
+                                  style: TextStyle(fontSize: 11.sp,)),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text('4\n$t4',
-                                  style: const TextStyle(fontSize: 9)),
+                                  style: TextStyle(fontSize: 11.sp,)),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text('5\n$t5',
-                                  style: const TextStyle(fontSize: 9)),
+                                  style: TextStyle(fontSize: 11.sp,)),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text('6\n$t6',
-                                  style: const TextStyle(fontSize: 9)),
+                                  style: TextStyle(fontSize: 11.sp,)),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '7\n$t7',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '8\n$t8',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '9\n$t9',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '10\n$t10',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '11\n$t11',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '12\n$t12',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '13\n$t13',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '14\n$t14',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '15\n$t15',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '16\n$t16',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '17\n$t17',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '18\n$t18',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '19\n$t19',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '20\n$t20',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '21\n$t21',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '22\n$t22',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '23\n$t23',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '24\n$t24',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '25\n$t25',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '26\n$t26',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '27\n$t27',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '28\n$t28',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '29\n$t29',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
                             ),
                             Container(
-                              width: 35,
+                              width: 45.w,
                               child: Text(
                                 '30\n$t30',
-                                style: const TextStyle(fontSize: 9),
+                                style: TextStyle(fontSize: 11.sp,),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),

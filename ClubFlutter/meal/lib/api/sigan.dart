@@ -38,12 +38,20 @@ class _SiganapiState extends State<Siganapi> {
   bool isFriday = false;
   late List<bool> isSelected;
   bool isLoading = true;
-  String monday1 = "";
+  String firstclass = "";
+  String secondclass = "";
+  String thirdclass = "";
+  String fourthclass = "";
+  String fifthclass = "";
+  String sixthclass = "";
+  String sevenclass = "";
   String MSub = "";
   String Tuseday = "";
   String Wednesday = "";
   String Thursday = "";
   String Friday = "";
+  String grade = "";
+  String classes = "";
   @override
   void initState() {
     isSelected = [isMonday, isTuesday, isWednesday, isThursday, isFriday];
@@ -53,13 +61,18 @@ class _SiganapiState extends State<Siganapi> {
 
   Future<void> fetchPosts() async {
     final response = await http.get(Uri.parse(
-        'http://13.125.225.199:8002/api/school/neisAPI/timeline?grade=2&classs=2'));
+        'http://13.125.225.199:8002/api/school/neisAPI/timeline?grade=$grade&classs=$classes'));
     var parsingData = jsonDecode(utf8.decode(response.bodyBytes));
     setState(() {
       isLoading = false;
-      monday1 = parsingData['1, study'];
+      firstclass = parsingData[0]['study'];
+      secondclass = parsingData[1]['study'];
+      thirdclass = parsingData[2]['study'];
+      fourthclass = parsingData[3]['study'];
+      fifthclass = parsingData[4]['study'];
+      sixthclass = parsingData[5]['study'];
+      sevenclass = parsingData[6]['study'];
     });
-    
     if (response.statusCode == 200) {
       print('Success');
     } else {
@@ -104,7 +117,7 @@ class _SiganapiState extends State<Siganapi> {
                             ]),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(105, 28, 0, 0),
+                        margin: const EdgeInsets.fromLTRB(0, 28, 0, 0),
                         child: Column(
                           children: [
                             // ignore: avoid_unnecessary_containers
@@ -117,198 +130,85 @@ class _SiganapiState extends State<Siganapi> {
                                     color: Colors.white),
                               ),
                             ),
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(12, 10, 0, 0),
-                              child: const Text(
-                                '2학년 1반',
-                                style: TextStyle(
-                                    fontSize: 17, color: Colors.white),
-                              ),
+                            Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(left: 150.w),
+                                  width: 100.w,
+                                  child: DropdownButtonFormField<String?>(
+                                    decoration: InputDecoration(
+                                      floatingLabelBehavior:
+                                          FloatingLabelBehavior.always,
+                                    ),
+                                    onChanged: (String? newValue) {
+                                      print(newValue);
+                                      setState(() {
+                                        if(newValue == null){
+                                          grade = "1";
+                                        }
+                                        else grade = "2";
+                                        fetchPosts();
+                                      });
+                                    },
+                                    
+                                    items: [null, '1']
+                                        .map<DropdownMenuItem<String?>>(
+                                            (String? i) {
+                                      return DropdownMenuItem<String?>(
+                                        value: i,
+                                        child: Text(
+                                          {'1': '2학년'}[i] ?? '1학년',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 10.w),
+                                  width: 100.w,
+                                  child: DropdownButtonFormField<String?>(
+                                    decoration: InputDecoration(
+                                      floatingLabelBehavior:
+                                          FloatingLabelBehavior.always,
+                                    ),
+                                    onChanged: (String? newValue) {
+                                      print(newValue);
+                                      setState(() {
+                                        if(newValue == null) classes = "1";
+                                        else if(newValue == '1') classes = "2";
+                                        else if(newValue == '2') classes = "3";
+                                        else classes = "4";
+                                        fetchPosts();
+                                      });
+                                    },
+                                    items: [null, '1', '2', '3']
+                                        .map<DropdownMenuItem<String?>>(
+                                            (String? i) {
+                                      return DropdownMenuItem<String?>(
+                                        value: i,
+                                        child: Text(
+                                          {
+                                                '1': '2반',
+                                                '2': '3반',
+                                                '3': '4반'
+                                              }[i] ??
+                                              '1반',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.black),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ),
-                      Positioned(
-                        top: 105,
-                        left: 40.w,
-                        child: Row(
-                          children: [
-                            // ignore: sized_box_for_whitespace
-                            Container(
-                              width: 35,
-                              height: 35,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    isMonday = true;
-                                    isTuesday = false;
-                                    isWednesday = false;
-                                    isThursday = false;
-                                    isFriday = false;
-                                  });
-                                },
-                                child: Text(
-                                  "월",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                    elevation: 0.0,
-                                    primary: isMonday
-                                        ? Color(0xffFFEE95)
-                                        : Color(0xff9EC3FF),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(100)),
-                                    padding: EdgeInsets.only(left: 0)),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 22,
-                            ),
-                            // ignore: sized_box_for_whitespace
-                            Container(
-                              width: 35,
-                              height: 35,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    isMonday = false;
-                                    isTuesday = true;
-                                    isWednesday = false;
-                                    isThursday = false;
-                                    isFriday = false;
-                                  });
-                                },
-                                child: Text(
-                                  "화",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                    elevation: 0.0,
-                                    minimumSize: Size(50, 50),
-                                    primary: isTuesday
-                                        ? Color(0xffFFEE95)
-                                        : Color(0xff9EC3FF),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(100)),
-                                    padding: EdgeInsets.only(left: 0)),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 22,
-                            ),
-                            Container(
-                              width: 35,
-                              height: 35,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    isMonday = false;
-                                    isTuesday = false;
-                                    isWednesday = true;
-                                    isThursday = false;
-                                    isFriday = false;
-                                  });
-                                },
-                                child: Text(
-                                  "수",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                    elevation: 0.0,
-                                    minimumSize: Size(50, 50),
-                                    primary: isWednesday
-                                        ? Color(0xffFFEE95)
-                                        : Color(0xff9EC3FF),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(100)),
-                                    padding: EdgeInsets.only(left: 0)),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 22,
-                            ),
-                            Container(
-                              width: 35,
-                              height: 35,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    isMonday = false;
-                                    isTuesday = false;
-                                    isWednesday = false;
-                                    isThursday = true;
-                                    isFriday = false;
-                                  });
-                                },
-                                child: Text(
-                                  "목",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0.0,
-                                  minimumSize: Size(50, 50),
-                                  primary: isThursday
-                                      ? Color(0xffFFEE95)
-                                      : Color(0xff9EC3FF),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(100)),
-                                  padding: EdgeInsets.only(left: 0),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 22,
-                            ),
-                            Container(
-                              width: 35,
-                              height: 35,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    isMonday = false;
-                                    isTuesday = false;
-                                    isWednesday = false;
-                                    isThursday = false;
-                                    isFriday = true;
-                                  });
-                                },
-                                child: Text(
-                                  "금",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0.0,
-                                  primary: isFriday
-                                      ? Color(0xffFFEE95)
-                                      : Color(0xff9EC3FF),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(100)),
-                                  padding: EdgeInsets.only(left: 0),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
                     ],
                   ),
                   decoration: const BoxDecoration(
@@ -327,141 +227,240 @@ class _SiganapiState extends State<Siganapi> {
                   ),
                 ),
                 Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 20, top: 20),
-                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
-                  width: 50.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color(0xffFFEE95),
-                  ),
-                  child: Row(children: [
-                    SizedBox(
-                      width: 18.w,
+                    Padding(
+                      padding: EdgeInsets.only(left: 20.w, top: 20.h),
+                      child: Column(children: [
+                        Container(
+                            width: 50.w,
+                            height: 45.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Color(0xffFFEE95),
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 18.w,
+                                ),
+                                Text(
+                                  '1',
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            )),
+                        Container(
+                            margin: EdgeInsets.only(top: 20),
+                            width: 50.w,
+                            height: 45.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Color(0xffFFEE95),
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 18.w,
+                                ),
+                                Text(
+                                  '2',
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            )),
+                        Container(
+                            margin: EdgeInsets.only(top: 20),
+                            width: 50.w,
+                            height: 45.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Color(0xffFFEE95),
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 18.w,
+                                ),
+                                Text(
+                                  '3',
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            )),
+                        Container(
+                            margin: EdgeInsets.only(top: 20),
+                            width: 50.w,
+                            height: 45.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Color(0xffFFEE95),
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 18.w,
+                                ),
+                                Text(
+                                  '4',
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            )),
+                        Container(
+                            margin: EdgeInsets.only(top: 20),
+                            width: 50.w,
+                            height: 45.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Color(0xffFFEE95),
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 18.w,
+                                ),
+                                Text(
+                                  '5',
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            )),
+                        Container(
+                            margin: EdgeInsets.only(top: 20),
+                            width: 50.w,
+                            height: 45.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Color(0xffFFEE95),
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 18.w,
+                                ),
+                                Text(
+                                  '6',
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            )),
+                        Container(
+                            margin: EdgeInsets.only(top: 20),
+                            width: 50.w,
+                            height: 45.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Color(0xffFFEE95),
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 18.w,
+                                ),
+                                Text(
+                                  '7',
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            )),
+                      ]),
                     ),
-                    Text('1',
-                    style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,),),
-                    Text(
-                      monday1
-                    ),
-                  ],)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(padding: EdgeInsets.only(top: 18.h)),
+                      Container(
+                        margin: EdgeInsets.only(left: 30.w),
+                        child: Text(
+                          firstclass,
+                          style: TextStyle(fontSize: 23.sp),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 41.h,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 30.w),
+                        child: Text(
+                          secondclass,
+                          style: TextStyle(fontSize: 23.sp),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 41.h,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 30.w),
+                        child: Text(
+                          thirdclass,
+                          style: TextStyle(fontSize: 23.sp),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 41.h,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 30.w),
+                        child: Text(
+                          fourthclass,
+                          style: TextStyle(fontSize: 23.sp),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 41.h,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 30.w),
+                        child: Text(
+                          fifthclass,
+                          style: TextStyle(fontSize:23.sp),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 41.h,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 30.w),
+                        child: Text(
+                          sixthclass,
+                          style: TextStyle(fontSize: 23.sp),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 41.h,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 30.w),
+                        child: Text(
+                          sevenclass,
+                          style: TextStyle(fontSize: 23.sp),
+                        ),
+                      ),
+                    ]),
+                  ],
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 50.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color(0xffFFEE95),
-                  ),
-                  child: Row(children: [
-                    SizedBox(
-                      width: 18.w,
-                    ),
-                    Text('2',
-                    style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,),),
-                  ],)
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 50.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color(0xffFFEE95),
-                  ),
-                  child: Row(children: [
-                    SizedBox(
-                      width: 18.w,
-                    ),
-                    Text('3',
-                    style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,),),
-                  ],)
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 50.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color(0xffFFEE95),
-                  ),
-                  child: Row(children: [
-                    SizedBox(
-                      width: 18.w,
-                    ),
-                    Text('4',
-                    style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,),),
-                  ],)
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 50.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color(0xffFFEE95),
-                  ),
-                  child: Row(children: [
-                    SizedBox(
-                      width: 18.w,
-                    ),
-                    Text('5',
-                    style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,),),
-                  ],)
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 50.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color(0xffFFEE95),
-                  ),
-                  child: Row(children: [
-                    SizedBox(
-                      width: 18.w,
-                    ),
-                    Text('6',
-                    style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,),),
-                  ],)
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  width: 50.w,
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Color(0xffFFEE95),
-                  ),
-                  child: Row(children: [
-                    SizedBox(
-                      width: 18.w,
-                    ),
-                    Text('7',
-                    style: TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,),),
-                  ],)
-                ),
-                  ]
-                  
-                ),
-              )
-              
-              
-            ],
-          ),
               ],
             ),
     );

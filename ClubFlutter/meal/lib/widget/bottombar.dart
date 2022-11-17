@@ -21,13 +21,13 @@ class Bottom {
             ),
             Tab(
               icon: Icon(
-                Icons.groups,
+                Icons.school,
                 size: 25.h,
               ),
             ),
             Tab(
               icon: Icon(
-                Icons.school,
+                Icons.timer,
                 size: 25.h,
               ),
             ),
