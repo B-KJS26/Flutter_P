@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:http/http.dart' as http;
 import 'package:meal/splash/splashed.dart';
-import 'package:meal/api/timetable.dart';
 
 class Sigan extends StatelessWidget {
   const Sigan({Key? key}) : super(key: key);
