@@ -33,13 +33,21 @@ class _MainpagesState extends State<Mainpages> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
+      body: Center(
+        child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             '$counter'
           ),
+          ElevatedButton(onPressed: () {
+            setState(() {
+              counter--;
+            });
+          }, child: Text("안녕하세요"),),
         ]
       ), 
+      ),
     );
   }
 }
