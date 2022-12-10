@@ -44,7 +44,7 @@ class _MainpagesState extends State<Mainpages> {
             setState(() {
               counter--;
             });
-          }, child: Text("안녕하세요"),),
+          }, child: Image(image: AssetImage('assets/egg.png'),)),
         ]
       ), 
       ),
