@@ -26,7 +26,8 @@ class Mainpages extends StatefulWidget {
 }
 
 class _MainpagesState extends State<Mainpages> {
-  int counter = 100000;
+  int counter = 9999999;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,8 +44,12 @@ class _MainpagesState extends State<Mainpages> {
           ElevatedButton(onPressed: () {
             setState(() {
               counter--;
+              if(counter == 0) {
+                AlertDialog(title: Text('알이 깨졌습니다!'),);
+              }
             });
-          }, child: Image(image: AssetImage('assets/egg.png'),)),
+          }, child: Image(image: AssetImage('assets/egg.png'),
+          color: Colors.white,)),
         ]
       ), 
       ),
