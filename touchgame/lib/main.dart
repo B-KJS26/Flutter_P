@@ -11,7 +11,7 @@ class Touchgame extends StatelessWidget {
     return MaterialApp(
       title: 'Touch Game',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
       home: const Mainpages(title: 'Touch Game'),
     );
@@ -48,11 +48,14 @@ class _MainpagesState extends State<Mainpages> {
                 AlertDialog(title: Text('알이 깨졌습니다!'),);
               }
             });
-          }, child: Image(image: AssetImage('assets/egg.png'),
-          color: Colors.white,)),
+          },
+            child: Image(image: AssetImage('assets/egg.png'),
+            colorBlendMode: BlendMode.lighten,
+        )),
         ]
-      ), 
       ),
+      ),
+      backgroundColor: Colors.blueGrey,
     );
   }
 }
