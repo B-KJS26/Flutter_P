@@ -12,13 +12,13 @@ class _TimersState extends State<Timers> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Premium Timer App'),
+        title: Text('Timer App'),
       ),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('qtqt'),
+          Text('타이머'),
           ElevatedButton(onPressed: () {}, child: Text('시작!')),
         ],
       )),
