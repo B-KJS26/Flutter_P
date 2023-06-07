@@ -26,7 +26,7 @@ class Mainpages extends StatefulWidget {
 }
 
 class _MainpagesState extends State<Mainpages> {
-  int counter = 9999999;
+  int counter = 9;
   
   @override
   Widget build(BuildContext context) {

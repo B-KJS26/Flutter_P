@@ -1,6 +1,5 @@
 // ignore_for_file: non_constant_identifier_names
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 // ignore: unused_import
@@ -87,6 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final response = await http.get(Uri.parse(
         'http://13.125.225.199:8001/api/school/neisAPI/schedule?year=2022&month=11'));
     var parsingData = jsonDecode(utf8.decode(response.bodyBytes));
+    //불러온 데이터 저장
     setState(() {
       t1 = parsingData[0]['day'];
       t2 = parsingData[1]['day'];
@@ -121,9 +121,9 @@ class _MyHomePageState extends State<MyHomePage> {
       isLoading = false;
     });
     if (response.statusCode == 200) {
-      print('Success');
+      print('성공!');
     } else {
-      throw Exception('Failed to load post');
+      throw Exception('실패');
     }
   }
 
@@ -186,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                 SizedBox(
+                SizedBox(
                   height: 20.h,
                 ),
                 Container(
@@ -204,9 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               Text(
                                 'SUN  ',
                                 style: TextStyle(
-                                  color: Colors.red,
-                                  fontSize: 15.sp
-                                ),
+                                    color: Colors.red, fontSize: 15.sp),
                               ),
                               SizedBox(
                                 width: 2.w,
@@ -276,38 +274,52 @@ class _MyHomePageState extends State<MyHomePage> {
                             Container(
                               width: 45.w,
                               child: Text('1\n$t1',
-                                  style: TextStyle(fontSize: 11.sp,)),
+                                  style: TextStyle(
+                                    fontSize: 11.sp,
+                                  )),
                             ),
                             Container(
                               width: 45.w,
                               child: Text('2\n$t2',
-                                  style: TextStyle(fontSize: 11.sp,)),
+                                  style: TextStyle(
+                                    fontSize: 11.sp,
+                                  )),
                             ),
                             Container(
                               width: 45.w,
                               child: Text('3\n$t3',
-                                  style: TextStyle(fontSize: 11.sp,)),
+                                  style: TextStyle(
+                                    fontSize: 11.sp,
+                                  )),
                             ),
                             Container(
                               width: 45.w,
                               child: Text('4\n$t4',
-                                  style: TextStyle(fontSize: 11.sp,)),
+                                  style: TextStyle(
+                                    fontSize: 11.sp,
+                                  )),
                             ),
                             Container(
                               width: 45.w,
                               child: Text('5\n$t5',
-                                  style: TextStyle(fontSize: 11.sp,)),
+                                  style: TextStyle(
+                                    fontSize: 11.sp,
+                                  )),
                             ),
                             Container(
                               width: 45.w,
                               child: Text('6\n$t6',
-                                  style: TextStyle(fontSize: 11.sp,)),
+                                  style: TextStyle(
+                                    fontSize: 11.sp,
+                                  )),
                             ),
                             Container(
                               width: 45.w,
                               child: Text(
                                 '7\n$t7',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
@@ -317,7 +329,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '8\n$t8',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
@@ -327,7 +341,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '9\n$t9',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
@@ -337,7 +353,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '10\n$t10',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
@@ -347,7 +365,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '11\n$t11',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
@@ -357,7 +377,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '12\n$t12',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.justify,
                                 maxLines: 3,
@@ -367,7 +389,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '13\n$t13',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -376,7 +400,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '14\n$t14',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -385,7 +411,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '15\n$t15',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -394,7 +422,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '16\n$t16',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -403,7 +433,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '17\n$t17',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -412,7 +444,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '18\n$t18',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -421,7 +455,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '19\n$t19',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -430,7 +466,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '20\n$t20',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -439,7 +477,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '21\n$t21',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -448,7 +488,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '22\n$t22',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -457,7 +499,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '23\n$t23',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -466,7 +510,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '24\n$t24',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -475,7 +521,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '25\n$t25',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -484,7 +532,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '26\n$t26',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -493,7 +543,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '27\n$t27',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -502,7 +554,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '28\n$t28',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -511,7 +565,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '29\n$t29',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
@@ -520,7 +576,9 @@ class _MyHomePageState extends State<MyHomePage> {
                               width: 45.w,
                               child: Text(
                                 '30\n$t30',
-                                style: TextStyle(fontSize: 11.sp,),
+                                style: TextStyle(
+                                  fontSize: 11.sp,
+                                ),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 3,
                               ),
