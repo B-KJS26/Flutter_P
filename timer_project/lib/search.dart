@@ -4,6 +4,7 @@ import 'package:html/parser.dart' as parser;
 import 'package:provider/provider.dart';
 import 'package:timer_project/provider/provider.dart';
 import './database/db.dart';
+import 'package:toast/toast.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});
@@ -31,6 +32,7 @@ class _AlarmState extends State<Search> {
     });
   }
 
+  String completion = '저장완료되었습니다.';
   String chprofile = '';
   String chname = '';
   String chname1 = '';
@@ -56,6 +58,7 @@ class _AlarmState extends State<Search> {
   }
 
   Future<List<Object>> lovingcats(String namings) async {
+    ToastContext().init(context);
     setState(() {
       isJudge = false;
     });
@@ -185,7 +188,123 @@ class _AlarmState extends State<Search> {
             ? loadings()
             : getString
                 ? isHaving
-                    ? searchusers(user)
+                    ? Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.network(chprofile),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(chname1,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(
+                                  width: 30,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(chname2,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(
+                                  width: 30,
+                                )
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(chlevel,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(
+                                  width: 30,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 50,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 300,
+                                  child: TextField(
+                                    controller: _nicknameTextEditController,
+                                    decoration: InputDecoration(
+                                      labelText: 'Nickname',
+                                      hintText: '검색할 캐릭터의 닉네임 입력',
+                                      labelStyle:
+                                          TextStyle(color: Colors.redAccent),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10.0)),
+                                        borderSide: BorderSide(
+                                            width: 1, color: Colors.redAccent),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10.0)),
+                                        borderSide: BorderSide(
+                                            width: 1, color: Colors.redAccent),
+                                      ),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10.0)),
+                                      ),
+                                    ),
+                                    keyboardType: TextInputType.emailAddress,
+                                    onChanged: (text) {
+                                      setState(() {
+                                        inputname = text;
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 50),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                ElevatedButton(
+                                    onPressed: () {
+                                      lovingcats(
+                                          _nicknameTextEditController.text);
+                                    },
+                                    child: Text("검색")),
+                                SizedBox(
+                                  width: 25,
+                                ),
+                                ElevatedButton(
+                                  child: Text("프로필 저장하기"),
+                                  onPressed: () {
+                                    setState(() {
+                                      isSave = true;
+                                    });
+                                    showToast('캐릭터가 ' + completion,
+                                        duration: 2, gravity: 1);
+                                    saveprofile();
+                                  },
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      )
                     : errorpage(user)
                 : mainsearch());
   }
@@ -373,13 +492,14 @@ class _AlarmState extends State<Search> {
                 width: 25,
               ),
               ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      isSave = true;
-                    });
-                    saveprofile();
-                  },
-                  child: Text("프로필 저장하기")),
+                child: Text("프로필 저장하기"),
+                onPressed: () {
+                  setState(() {
+                    isSave = true;
+                  });
+                  saveprofile();
+                },
+              ),
             ],
           )
         ],
@@ -399,5 +519,9 @@ class _AlarmState extends State<Search> {
         )
       ],
     );
+  }
+
+  void showToast(String msg, {required int duration, required int gravity}) {
+    Toast.show(msg, duration: duration, gravity: gravity);
   }
 }
